@@ -1,7 +1,12 @@
-var tooltip;
-var intt;
+var sch_tooltip;
 
-window.onload=function(){
+$(function(){
+    sch_panel_create();
+});
+
+
+
+function sch_panel_create(){
     /*var i = document.createElement('input');
     i.setAttribute("type", "text");
     i.setAttribute("id", "sch_test");
@@ -21,10 +26,10 @@ window.onload=function(){
         var span = document.createElement("span");
         span.id = "cat_"+i;
         span.onmouseover = function(){
-            tooltip = false;
+            sch_tooltip = false;
             if (document.getElementById("sch_tooltip") != null)
                 document.getElementById("sch_tooltip").parentNode.removeChild(document.getElementById("sch_tooltip"));
-            tooltip = document.createElement("div");
+            sch_tooltip = document.createElement("div");
             var id = this.id.split("_")[1];
             var tbl = document.createElement('table');
             tbl.style.width = "100%";
@@ -61,17 +66,17 @@ window.onload=function(){
                         td.appendChild(a);
                     j++;
                     trr.appendChild(td);
-                    a.addEventListener('click', enter, false);
+                    a.addEventListener('click', sch_enter, false);
                 }
                 tbl.appendChild(trr);
             }
             
-            tooltip.appendChild(tbl);
-            tooltip.id = "sch_tooltip";
+            sch_tooltip.appendChild(tbl);
+            sch_tooltip.id = "sch_tooltip";
             //console.log(this.clientWidth);
-            tooltip.setAttribute('class', 'sch_tooltip');
-            tooltip.onmouseout = function(e){
-                tooltip = false;
+            sch_tooltip.setAttribute('class', 'sch_tooltip');
+            sch_tooltip.onmouseout = function(e){
+                sch_tooltip = false;
                 var ev = e.toElement || e.relatedTarget;
                 if (ev == this) return;
                 if (ev.parentNode == this) return;
@@ -89,11 +94,11 @@ window.onload=function(){
                 if (document.getElementById("sch_tooltip") != null)
                     document.getElementById("sch_tooltip").parentNode.removeChild(document.getElementById("sch_tooltip"));
             };
-            document.getElementById('sch_tooltip_cont').appendChild(tooltip);
+            document.getElementById('sch_tooltip_cont').appendChild(sch_tooltip);
             //console.log(tooltip.clientWidth);
-            tooltip.style.left = (this.parentNode.offsetLeft+
+            sch_tooltip.style.left = (this.parentNode.offsetLeft+
                                  (this.parentNode.clientWidth/2)+
-                                 this.parentNode.parentNode.parentNode.offsetLeft - tooltip.clientWidth/2)+
+                                 this.parentNode.parentNode.parentNode.offsetLeft - sch_tooltip.clientWidth/2)+
                                  "px";
         }
         span.onmouseout = function(e){
@@ -119,7 +124,7 @@ window.onload=function(){
     
 }
 
-function enter(){
+function sch_enter(){
     var text = this.innerHTML;
     len = text.length-1;
     u = 0;
