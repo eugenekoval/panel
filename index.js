@@ -129,7 +129,9 @@ function enter(){
         input = inputs.item(i).value;
     }*/
     input.value = "";
-    intt = window.setInterval(function(){
+    input.value = input.value + text;
+    document.getElementsByName('sa')[0].click();
+    /*intt = window.setInterval(function(){
         input.value = input.value + text[u];
         console.log(text[u]);
         if (u == len){
@@ -137,6 +139,6 @@ function enter(){
             document.getElementsByName('sa')[0].click()
         }
         u++;
-    }, 100)
+    }, 100)*/
 }
 
