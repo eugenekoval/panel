@@ -2,10 +2,10 @@ var tooltip;
 var intt;
 
 window.onload=function(){
-    var i = document.createElement('input');
+    /*var i = document.createElement('input');
     i.setAttribute("type", "text");
-    i.setAttribute("id", "test");
-    document.body.appendChild(i);
+    i.setAttribute("id", "sch_test");
+    document.body.appendChild(i);*/
     
     var arr = ['Звери, птицы, насекомые','Люди','Неодушевлённые существа и абстрактные понятия','Мифические персонажи'];
     var arr2 = ['Волк,Лисица,Собака,Лев,Олень,Коза,Верблюд,Журавль,Крысы,Ласки,Овцы,Конь,Обезьяна,Ягнёнок,Ворона,Ворон,Газель,Черепаха,Крыса,Воронёнок,Голубь,Муравей,Звери,Бык,Лягушка,Голуби,Мулы,Ослы,Петухи,Попугаи,Жаворонок,Птенцы,Куропатка,Заяц,Лягушки,Черепаха,Змея,Козёл,Коршун,Соловей,Кот,Воробей,Ласочка,Кролик, Кошка,Мышь,Кролики,Слон,Устрица,Куропатка,Ласочка,Ласточка,Лебедь,Комар,Осёл,Летучая мышь,Утка,Индюшки,Лошадь,Аист,Мухи,Ёж,Медведица,Львица,Вол,Мартышка,Пчела,Сова,Дельфин,Леопард,Конь,Орёл,Дикая Свинья,Сорока,Жук,Орлица,Стадо,Паук,Змея,Ястреб,Медведь,Рыбка,Рыбы,Баклан,Курица,Слон,Сокол,Каплун,Рак,Стрекоза,Муравей,Цапля,Лошак,Блоха,Шершни,Пчёлы,Поросёнок,Ягнёнок,Павлин',
@@ -22,14 +22,14 @@ window.onload=function(){
         span.id = "cat_"+i;
         span.onmouseover = function(){
             tooltip = false;
-            if (document.getElementById("tooltip") != null)
-                document.getElementById("tooltip").parentNode.removeChild(document.getElementById("tooltip"));
+            if (document.getElementById("sch_tooltip") != null)
+                document.getElementById("sch_tooltip").parentNode.removeChild(document.getElementById("sch_tooltip"));
             tooltip = document.createElement("div");
             var id = this.id.split("_")[1];
             var tbl = document.createElement('table');
             tbl.style.width = "100%";
             var lst = arr2[id].split(",");
-            for (j=0;j<lst.length;j+=2){
+            /*for (j=0;j<lst.length;j+=2){
                 td1 = document.createElement('td');
                 td2 = document.createElement('td');
                 a = document.createElement('a');
@@ -47,11 +47,29 @@ window.onload=function(){
                 tbl.appendChild(trr);
                 a.addEventListener('click', enter, false);
                 a2.addEventListener('click', enter, false);
-            } 
+            } */
+            for (j=0;j<lst.length;j++){
+                var flag = Math.ceil(lst.length/15);
+                k = 0;
+                trr = document.createElement('tr');
+                for (k=0;k<flag;k++){
+                    td = document.createElement('td');
+                    a = document.createElement('a');
+                    a.setAttribute('href', '#');
+                    a.appendChild(document.createTextNode(lst[j]));
+                    if (lst[j] != undefined)
+                        td.appendChild(a);
+                    j++;
+                    trr.appendChild(td);
+                    a.addEventListener('click', enter, false);
+                }
+                tbl.appendChild(trr);
+            }
+            
             tooltip.appendChild(tbl);
-            tooltip.id = "tooltip";
+            tooltip.id = "sch_tooltip";
             //console.log(this.clientWidth);
-            tooltip.setAttribute('class', 'tooltip');
+            tooltip.setAttribute('class', 'sch_tooltip');
             tooltip.onmouseout = function(e){
                 tooltip = false;
                 var ev = e.toElement || e.relatedTarget;
@@ -68,10 +86,10 @@ window.onload=function(){
                 }
                 
                 //if (ev.parentNode == this || ev == this || ev.parentNode.parentNode == this || ev.parentNode.parentNode.parentNode == this || ev.parentNode.parentNode.parentNode.parentNode == this) return;
-                if (document.getElementById("tooltip") != null)
-                    document.getElementById("tooltip").parentNode.removeChild(document.getElementById("tooltip"));
+                if (document.getElementById("sch_tooltip") != null)
+                    document.getElementById("sch_tooltip").parentNode.removeChild(document.getElementById("sch_tooltip"));
             };
-            document.getElementById('tooltip_cont').appendChild(tooltip);
+            document.getElementById('sch_tooltip_cont').appendChild(tooltip);
             //console.log(tooltip.clientWidth);
             tooltip.style.left = (this.parentNode.offsetLeft+
                                  (this.parentNode.clientWidth/2)+
@@ -80,7 +98,6 @@ window.onload=function(){
         }
         span.onmouseout = function(e){
             var ev = e.toElement || e.relatedTarget;
-            console.log(ev);
             /*if (document.getElementById("tooltip") != null)
                     document.getElementById("tooltip").parentNode.removeChild(document.getElementById("tooltip"));*/
         }
@@ -90,13 +107,13 @@ window.onload=function(){
     }
     t.appendChild(tr);
     var d=document.createElement('div');
-    d.id = "search-panel";
+    d.id = "sch_search-panel";
     d.appendChild(t);
     
     document.body.appendChild(d);
     
     var dd = document.createElement("div");
-    dd.id = "tooltip_cont";
+    dd.id = "sch_tooltip_cont";
     dd.style.bottom = "60px";
     document.body.appendChild(dd);
     
@@ -106,11 +123,18 @@ function enter(){
     var text = this.innerHTML;
     len = text.length-1;
     u = 0;
-    document.getElementById('test').value = "";
+    var input = (document.getElementsByName('q')[0]);
+    /*var input;
+    for (i=0;i<inputs.length;i++){
+        input = inputs.item(i).value;
+    }*/
+    input.value = "";
     intt = window.setInterval(function(){
-        document.getElementById('test').value = document.getElementById('test').value + text[u];
+        input.value = input.value + text[u];
+        console.log(text[u]);
         if (u == len){
             clearInterval(intt);
+            document.getElementsByName('sa')[0].click()
         }
         u++;
     }, 100)

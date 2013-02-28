@@ -1,50 +1,68 @@
-#search-panel{
+#sch_search-panel{
     padding: 5px;
     position: absolute;
     background: #cccccc;
     opacity: 0.5;
-    border-radius: 5px;
+    border-radius: 10px;
     bottom: 20px;
     left: 50%;
     margin-left: -500px;
-    width: 1000px;
+    font-names: Verdana;
+	font-size: 12px;
+	font-weight: normal;
     /*cursor: pointer;*/
     border: 1px solid #666666;
+	box-shadow: 2px 2px 2px #ccc;
     color: black;
+	
 }
-#search-panel:hover{
+#sch_search-panel:hover{
     opacity: 1
 }
-#search-panel table{
+#sch_search-panel table{
     /*border: 1px solid black;*/
-    width: 100%;
+    width: 100%;	
+	padding-left: 15px;
+	padding-right: 15px;
 }
-#search-panel table td{
+#sch_search-panel table td{
     text-align: center;
+	padding-left: 15px;
+	padding-right: 15px;
 }
-#search-panel span{
-    text-decoration: underline;
+#sch_search-panel span{
+    border-bottom: 1px dotted #333;
     cursor: pointer;
     font-weight: bold;
 }
-#search-panel span:hover{
-    text-decoration: underline;
+#sch_search-panel span:hover{
+    border-bottom: 1px solid #333;
 }
-.tooltip{
+.sch_tooltip{
     /*width: 300px;*/
     background: #cccccc;
-    border-radius: 5px;
+	padding: 10px;
+    border-radius: 8px;
     border: 1px solid #666666;
-    opacity: 0.5;
     float: bottom;
     position: absolute;
-    bottom: 5px;
+    bottom: 5px;	
+	font-size: 12px;
+	font-weight: normal;
+	box-shadow: 2px 2px 2px #ccc;
 }
-.tooltip:hover{
-    opacity: 1;
+.sch_tooltip:hover{
 }
 
-#tooltip_cont{
+.sch_tooltip a{
+	text-decoration: none;
+}
+
+.sch_tooltip a:hover{
+	text-decoration: underline;
+}
+
+#sch_tooltip_cont{
     width: 1000px;
     height: 1px;
     position: absolute;
