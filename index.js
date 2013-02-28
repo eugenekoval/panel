@@ -128,6 +128,7 @@ function enter(){
     for (i=0;i<inputs.length;i++){
         input = inputs.item(i).value;
     }*/
+    text = text.toLowerCase();
     input.value = "";
     input.value = input.value + text;
     document.getElementsByName('sa')[0].click();
