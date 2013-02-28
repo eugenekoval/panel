@@ -1,6 +1,6 @@
 #sch_search-panel{
     padding: 5px;
-    position: absolute;
+    position: fixed;
     background: #cccccc;
     opacity: 0.5;
     border-radius: 10px;
@@ -65,7 +65,7 @@
 #sch_tooltip_cont{
     width: 1000px;
     height: 1px;
-    position: absolute;
+    position: fixed;
     left: 50%;
     margin-left: -500px;
     padding: 5px;

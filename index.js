@@ -1,10 +1,11 @@
 var sch_tooltip;
 
+/*window.onload = function(){
+    sch_panel_create();
+};*/
 $(function(){
     sch_panel_create();
 });
-
-
 
 function sch_panel_create(){
     /*var i = document.createElement('input');
