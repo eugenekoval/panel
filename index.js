@@ -48,11 +48,11 @@ window.onload=function(){
                 a.addEventListener('click', enter, false);
                 a2.addEventListener('click', enter, false);
             } */
-            for (j=0;j<lst.length;j++){
+            for (j=0;j<lst.length;){
                 var flag = Math.ceil(lst.length/15);
                 k = 0;
                 trr = document.createElement('tr');
-                for (k=0;k<flag;k++){
+                for (k=0;k<=flag;k++){
                     td = document.createElement('td');
                     a = document.createElement('a');
                     a.setAttribute('href', '#');
