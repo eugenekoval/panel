@@ -113,7 +113,7 @@ function sch_panel_create(){
     }
     t.appendChild(tr);
     var d=document.createElement('div');
-    d.id = "sch_search-panel";
+    d.id = "sch_search_panel";
     d.appendChild(t);
     
     document.body.appendChild(d);

@@ -1,4 +1,4 @@
-#sch_search-panel{
+#sch_search_panel{
     padding: 5px;
     position: fixed;
     background: #cccccc;
@@ -16,26 +16,26 @@
     color: black;
 	
 }
-#sch_search-panel:hover{
+#sch_search_panel:hover{
     opacity: 1
 }
-#sch_search-panel table{
+#sch_search_panel table{
     /*border: 1px solid black;*/
     width: 100%;	
 	padding-left: 15px;
 	padding-right: 15px;
 }
-#sch_search-panel table td{
+#sch_search_panel table td{
     text-align: center;
 	padding-left: 15px;
 	padding-right: 15px;
 }
-#sch_search-panel span{
+#sch_search_panel span{
     border-bottom: 1px dotted #333;
     cursor: pointer;
     font-weight: bold;
 }
-#sch_search-panel span:hover{
+#sch_search_panel span:hover{
     border-bottom: 1px solid #333;
 }
 .sch_tooltip{
