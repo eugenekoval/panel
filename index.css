@@ -1,4 +1,4 @@
-#sch_search_panel{
+/*#sch_search_panel{
     padding: 5px;
     position: fixed;
     background: #cccccc;
@@ -10,9 +10,28 @@
     font-names: Verdana;
 	font-size: 12px;
 	font-weight: normal;
-    /*cursor: pointer;*/
     border: 1px solid #666666;
 	box-shadow: 2px 2px 2px #ccc;
+    color: black;
+	
+}*/
+#sch_search_panel{
+    padding: 5px;
+    margin-right: 10px;
+    /*position: fixed;*/
+    position: relative;
+    float: right;
+    background: #cccccc;
+    opacity: 0.5;
+    border-radius: 10px;
+    /*bottom: 20px;
+    /*left: 50%;
+    margin-left: -500px;*/
+    font-names: Verdana;
+    font-size: 12px;
+    font-weight: normal;
+    border: 1px solid #666666;
+    box-shadow: 2px 2px 2px #ccc;
     color: black;
 	
 }
@@ -41,15 +60,15 @@
 .sch_tooltip{
     /*width: 300px;*/
     background: #cccccc;
-	padding: 10px;
+    padding: 10px;
     border-radius: 8px;
     border: 1px solid #666666;
     float: bottom;
     position: absolute;
     bottom: 5px;	
-	font-size: 12px;
-	font-weight: normal;
-	box-shadow: 2px 2px 2px #ccc;
+    font-size: 12px;
+    font-weight: normal;
+    box-shadow: 2px 2px 2px #ccc;
 }
 .sch_tooltip:hover{
 }
@@ -62,7 +81,7 @@
 	text-decoration: underline;
 }
 
-#sch_tooltip_cont{
+/*#sch_tooltip_cont{
     width: 1000px;
     height: 1px;
     position: fixed;
@@ -72,4 +91,29 @@
     vertical-align: bottom;
     background: none;
     opacity: 1;
+}*/
+#sch_tooltip_cont{
+    /*width: 1000px;*/
+    height: 1px;
+    position: relative;
+    float: right;
+    /*left: 50%;
+    margin-left: -500px;*/
+    padding: 5px;
+    vertical-align: bottom;
+    background: none;
+    opacity: 1;
+}
+
+#sch_container,
+#sch_container_tooltip{
+    text-align: right;
+    position: fixed;
+    bottom: 10px;
+    width: 100%;
+    right: 10px;
+}
+#sch_container img{
+    cursor: pointer;
+    float: right;
 }

@@ -99,7 +99,6 @@ function sch_panel_create(){
                     document.getElementById("sch_tooltip").parentNode.removeChild(document.getElementById("sch_tooltip"));
             };
             document.getElementById('sch_tooltip_cont').appendChild(sch_tooltip);
-            //console.log(tooltip.clientWidth);
             sch_tooltip.style.left = (this.parentNode.offsetLeft+
                                  (this.parentNode.clientWidth/2)+
                                  this.parentNode.parentNode.parentNode.offsetLeft - sch_tooltip.clientWidth/2)+

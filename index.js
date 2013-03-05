@@ -1,24 +1,56 @@
 var sch_tooltip;
+var sch_in_tp = false;
+var sch_in_sp = false;
 
-/*window.onload = function(){
-    sch_panel_create();
-};*/
 $(function(){
+    $("body").append("<div id='sch_container'><img src='aperture.png' width='35px' height='35px' id='sch_img'></div>");  
+    $("body").append("<div id='sch_container_tooltip'></div>");  
     sch_panel_create();
+    $("#sch_img").hover(
+        function(){
+            $("#sch_search_panel").fadeIn('slow');
+        },
+        function(){
+            setTimeout(function(){
+                if (!sch_in_sp)
+                    $("#sch_search_panel").fadeOut('slow'); 
+            },100);
+        }
+    );
+    $("#sch_search_panel").hover(
+        function(){
+            sch_in_sp = true;
+        },
+        function(){
+            sch_in_sp = false;
+            setTimeout(function(){
+                if (!sch_in_tp)
+                    $("#sch_search_panel").fadeOut('slow'); 
+            },100);
+        }
+    );
+    /*$("#sch_tooltip").hover(
+        function(){
+            in_tp = true;
+        },
+        function(){
+            in_tp = false;
+            $("#sch_tooltip").fadeOut('slow'); 
+            setTimeout(function(){
+                //if (!in_sp)
+                    //$("#sch_search_panel").fadeOut('slow'); 
+            },100);
+        }
+    );*/
 });
 
 function sch_panel_create(){
-    /*var i = document.createElement('input');
-    i.setAttribute("type", "text");
-    i.setAttribute("id", "sch_test");
-    document.body.appendChild(i);*/
-    
     var arr = ['Звери, птицы, насекомые','Люди','Неодушевлённые существа и абстрактные понятия','Мифические персонажи'];
     var arr2 = ['Волк,Лисица,Собака,Лев,Олень,Коза,Верблюд,Журавль,Крысы,Ласки,Овцы,Конь,Обезьяна,Ягнёнок,Ворона,Ворон,Газель,Черепаха,Крыса,Воронёнок,Голубь,Муравей,Звери,Бык,Лягушка,Голуби,Мулы,Ослы,Петухи,Попугаи,Жаворонок,Птенцы,Куропатка,Заяц,Лягушки,Черепаха,Змея,Козёл,Коршун,Соловей,Кот,Воробей,Ласочка,Кролик, Кошка,Мышь,Кролики,Слон,Устрица,Куропатка,Ласочка,Ласточка,Лебедь,Комар,Осёл,Летучая мышь,Утка,Индюшки,Лошадь,Аист,Мухи,Ёж,Медведица,Львица,Вол,Мартышка,Пчела,Сова,Дельфин,Леопард,Конь,Орёл,Дикая Свинья,Сорока,Жук,Орлица,Стадо,Паук,Змея,Ястреб,Медведь,Рыбка,Рыбы,Баклан,Курица,Слон,Сокол,Каплун,Рак,Стрекоза,Муравей,Цапля,Лошак,Блоха,Шершни,Пчёлы,Поросёнок,Ягнёнок,Павлин',
                'Астролог,Мудрец,Безумец,Безумный продавец мудрости,Ваятель, Пастухи,Охотник,Мать,Ребёнок,Гадальщица,Госпожа,Служанки,Александр,Витязи,Друзья,Король,Сын,Человек,Демокрит,Абдериты,Дровосек,Женщины,Землевладелец,Сыновья,Искатели,Фортуны,Женщина,Крестьянин,Купец,Дворянин,Пастух,Королевский,Сын,Повар,Дровосек,Царь,Мельник,Вдова,Молочница,Муж,Жена,Вор,Возлюбленные,Девушка,Сберегатель,Оракул,Безбожник,Откупщик,Сапожник,Пастух,Паша,Поселянин,Симонид,Птицелов,Пустынник,Пьяница,Невеста,Рыбак,Садовод,Помещик,Прохожий,Священник,Философ,Скупой,Лесоруб,Несчастный,Умирающий,Монгол,Старик,Молодые,Брат,Милосердия,Третейский,Судья,Прохожие,Учитель,Ученик,Фермер,Дитя,Шарлатан,Школьник,Наставник,Хозяин сада,Шутник,Путник,Язычник',
                'Водопад,Река,Виноградник,Неволя,Голова,Хвост Змеи,Гора,Талисман,Клад,Яйцо,Дуб,Трость,Землевладелец,Жёлудь,Тыква,Секрет,Пила,Котёл,Горшок,Лес,Куст,Бюст,Судьба,Горшок с молоком,Море,Жемчужное Зерно,Подагра,Свеча,Смерть,Тень,Туша,Солнце,Изображение,Желудок,Члены тела,Покойник,Эпилог,Мызник',
                'Дафнис,Амур,Алцимадура,Меркурий,Юнона,Сатир,Улисс,Драконы,Тирсис,Амаранта,Утопленница,Феб,Борей,Филомела,Прокна,Юпитер,Перуны,Идол'
-               ]
+               ]; 
     var t = document.createElement("table");
     var tr = document.createElement("tr");
     for (i=0;i<arr.length;i++){
@@ -35,25 +67,6 @@ function sch_panel_create(){
             var tbl = document.createElement('table');
             tbl.style.width = "100%";
             var lst = arr2[id].split(",");
-            /*for (j=0;j<lst.length;j+=2){
-                td1 = document.createElement('td');
-                td2 = document.createElement('td');
-                a = document.createElement('a');
-                a.setAttribute('href', '#');
-                a.appendChild(document.createTextNode(lst[j]));
-                td1.appendChild(a);
-                a2 = document.createElement('a');
-                a2.setAttribute('href', '#');
-                a2.appendChild(document.createTextNode(lst[j+1]));
-                if (lst[j+1] != undefined)
-                    td2.appendChild(a2);
-                trr = document.createElement('tr');
-                trr.appendChild(td1);
-                trr.appendChild(td2);
-                tbl.appendChild(trr);
-                a.addEventListener('click', enter, false);
-                a2.addEventListener('click', enter, false);
-            } */
             for (j=0;j<lst.length;){
                 var flag = Math.ceil(lst.length/15);
                 k = 0;
@@ -94,9 +107,18 @@ function sch_panel_create(){
                 //if (ev.parentNode == this || ev == this || ev.parentNode.parentNode == this || ev.parentNode.parentNode.parentNode == this || ev.parentNode.parentNode.parentNode.parentNode == this) return;
                 if (document.getElementById("sch_tooltip") != null)
                     document.getElementById("sch_tooltip").parentNode.removeChild(document.getElementById("sch_tooltip"));
+                sch_in_tp = false;
+                setTimeout(function(){
+                    if (!sch_in_sp)
+                        $("#sch_search_panel").fadeOut('slow'); 
+                },100);
             };
+            sch_tooltip.onmouseover = function(e){
+                sch_in_tp = true;
+                //alert(in_tp);
+            }
             document.getElementById('sch_tooltip_cont').appendChild(sch_tooltip);
-            //console.log(tooltip.clientWidth);
+            console.log(this.parentNode.parentNode.parentNode.offsetLeft);
             sch_tooltip.style.left = (this.parentNode.offsetLeft+
                                  (this.parentNode.clientWidth/2)+
                                  this.parentNode.parentNode.parentNode.offsetLeft - sch_tooltip.clientWidth/2)+
@@ -104,8 +126,6 @@ function sch_panel_create(){
         }
         span.onmouseout = function(e){
             var ev = e.toElement || e.relatedTarget;
-            /*if (document.getElementById("tooltip") != null)
-                    document.getElementById("tooltip").parentNode.removeChild(document.getElementById("tooltip"));*/
         }
         span.appendChild(txt);
         td.appendChild(span);
@@ -116,12 +136,17 @@ function sch_panel_create(){
     d.id = "sch_search_panel";
     d.appendChild(t);
     
-    document.body.appendChild(d);
+    $("#sch_container").append(d);
+    //document.body.appendChild(d);
     
     var dd = document.createElement("div");
     dd.id = "sch_tooltip_cont";
-    dd.style.bottom = "60px";
-    document.body.appendChild(dd);
+    dd.style.bottom = "40px";
+    $("#sch_container_tooltip").append(dd);
+    $("#sch_tooltip_cont").width($("#sch_search_panel").width()+"px");
+    $("#sch_tooltip_cont").offset({'left':$("#sch_search_panel").offset().left});
+    $("#sch_search_panel").css('display','none');
+    //document.body.appendChild(dd);
     
 }
 
