@@ -69,6 +69,7 @@
     font-size: 12px;
     font-weight: normal;
     box-shadow: 2px 2px 2px #ccc;
+    display: none;
 }
 .sch_tooltip:hover{
 }
