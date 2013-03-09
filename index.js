@@ -26,8 +26,6 @@ $(function(){
             if (e.parentNode == this || e == this || e == document.getElementById('sch_container_tooltip')) {
                 return;
             }
-            //console.log(document.getElementById('sch_container_tooltip'));
-            //console.log(e);
             sch_in_sp = false;
             setTimeout(function(){
                 if (!sch_in_tp){
@@ -136,7 +134,9 @@ function sch_panel_create(){
     $("#sch_container_tooltip").append(dd);
     $("#sch_tooltip_cont").width($("#sch_search_panel").width()+"px");
     $("#sch_tooltip_cont").offset({'left':$("#sch_search_panel").offset().left});
-    //$("#sch_search_panel").css('display','none');
+    $("#sch_search_panel").css('display','none');
+    //console.log($("#sch_container").height());
+    $("#sch_search_panel").css({'top':'3px'/*,'margin-top': -$("#sch_search_panel").height()/4+"px"*/});
     
 }
 
