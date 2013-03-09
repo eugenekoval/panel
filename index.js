@@ -3,7 +3,7 @@ var sch_in_tp = false;
 var sch_in_sp = false;
 
 $(function(){
-    $("body").append("<div id='sch_container'><img src='aperture.png' width='35px' height='35px' id='sch_img'></div>");  
+    $("body").append("<div id='sch_container'><img src='search.png' width='35px' height='35px' id='sch_img'></div>");  
     $("body").append("<div id='sch_container_tooltip'></div>");  
     sch_panel_create();
     $("#sch_img").hover(
@@ -21,7 +21,13 @@ $(function(){
         function(){
             sch_in_sp = true;
         },
-        function(){
+        function(event){ 
+            var e = event.toElement || event.relatedTarget;
+            if (e.parentNode == this || e == this || e == document.getElementById('sch_container_tooltip')) {
+                return;
+            }
+            //console.log(document.getElementById('sch_container_tooltip'));
+            //console.log(e);
             sch_in_sp = false;
             setTimeout(function(){
                 if (!sch_in_tp){
@@ -32,7 +38,6 @@ $(function(){
         }
     );
 });
-
 function sch_panel_create(){
     var arr = ['Звери, птицы, насекомые','Люди','Неодушевлённые существа и абстрактные понятия','Мифические персонажи'];
     var arr2 = ['Волк,Лисица,Собака,Лев,Олень,Коза,Верблюд,Журавль,Крысы,Ласки,Овцы,Конь,Обезьяна,Ягнёнок,Ворона,Ворон,Газель,Черепаха,Крыса,Воронёнок,Голубь,Муравей,Звери,Бык,Лягушка,Голуби,Мулы,Ослы,Петухи,Попугаи,Жаворонок,Птенцы,Куропатка,Заяц,Лягушки,Черепаха,Змея,Козёл,Коршун,Соловей,Кот,Воробей,Ласочка,Кролик, Кошка,Мышь,Кролики,Слон,Устрица,Куропатка,Ласочка,Ласточка,Лебедь,Комар,Осёл,Летучая мышь,Утка,Индюшки,Лошадь,Аист,Мухи,Ёж,Медведица,Львица,Вол,Мартышка,Пчела,Сова,Дельфин,Леопард,Конь,Орёл,Дикая Свинья,Сорока,Жук,Орлица,Стадо,Паук,Змея,Ястреб,Медведь,Рыбка,Рыбы,Баклан,Курица,Слон,Сокол,Каплун,Рак,Стрекоза,Муравей,Цапля,Лошак,Блоха,Шершни,Пчёлы,Поросёнок,Ягнёнок,Павлин',
@@ -111,7 +116,7 @@ function sch_panel_create(){
                                  "px";
             //$(sch_tooltip).fadeIn();
         }
-        span.onmouseout = function(e){
+        span.onmouseout = function(e){ 
             var ev = e.toElement || e.relatedTarget;
         }
         span.appendChild(txt);
@@ -131,7 +136,7 @@ function sch_panel_create(){
     $("#sch_container_tooltip").append(dd);
     $("#sch_tooltip_cont").width($("#sch_search_panel").width()+"px");
     $("#sch_tooltip_cont").offset({'left':$("#sch_search_panel").offset().left});
-    $("#sch_search_panel").css('display','none');
+    //$("#sch_search_panel").css('display','none');
     
 }
 

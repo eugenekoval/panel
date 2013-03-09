@@ -1,20 +1,4 @@
-/*#sch_search_panel{
-    padding: 5px;
-    position: fixed;
-    background: #cccccc;
-    opacity: 0.5;
-    border-radius: 10px;
-    bottom: 20px;
-    left: 50%;
-    margin-left: -500px;
-    font-names: Verdana;
-	font-size: 12px;
-	font-weight: normal;
-    border: 1px solid #666666;
-	box-shadow: 2px 2px 2px #ccc;
-    color: black;
-	
-}*/
+
 #sch_search_panel{
     padding: 5px;
     margin-right: 10px;
@@ -35,8 +19,14 @@
     color: black;
 	
 }
+#sch_img {
+border-radius: 14px;
+box-shadow: 1px 2px 3px #ccc;
+border: 2px solid #555;
+}
+
 #sch_search_panel:hover{
-    opacity: 1
+    opacity: 1;
 }
 #sch_search_panel table{
     /*border: 1px solid black;*/
@@ -68,10 +58,15 @@
     bottom: 5px;	
     font-size: 12px;
     font-weight: normal;
-    box-shadow: 2px 2px 2px #ccc;
+    box-shadow: 1px 2px 4px #ccc;
     display: none;
 }
 .sch_tooltip:hover{
+}
+
+.sch_tooltip td{
+text-align: center;
+padding: 2px 10px 2px 10px;
 }
 
 .sch_tooltip a{
@@ -82,17 +77,6 @@
 	text-decoration: underline;
 }
 
-/*#sch_tooltip_cont{
-    width: 1000px;
-    height: 1px;
-    position: fixed;
-    left: 50%;
-    margin-left: -500px;
-    padding: 5px;
-    vertical-align: bottom;
-    background: none;
-    opacity: 1;
-}*/
 #sch_tooltip_cont{
     /*width: 1000px;*/
     height: 1px;
@@ -113,6 +97,9 @@
     bottom: 10px;
     width: 100%;
     right: 10px;
+}
+#sch_container_tooltip{
+    width: 1px;
 }
 #sch_container img{
     cursor: pointer;
